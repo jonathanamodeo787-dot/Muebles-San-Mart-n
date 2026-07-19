@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    --color-principal: #222;
+    --bg-color: #fff;
+    --navbar-color: #555;
+    background-color: var(--bg-color);
+    color: #222;
+    animation:aparecer 1s backwards;
+}
+
+    /*----- NAVBAR -----*/
+
+.navbar {
+    background-color: var(--navbar-color);
+    min-height: 3dvh;
+    max-height: 15dvh;
+    display: flex;
+    position: sticky;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.navbar-img {
+    margin: 0;
+    width: 40px;
+}
+
+.navbar-link {
+    margin: 20px;
+    text-decoration: none;
+    color: var(--bg-color);
+}
+
+.logo {
+    width: 50px;
+    background-color: var(--bg-color);
+}
+
+
+@media screen and (min-width: 600px){
+    .navbar-link {
+        margin: 50px;
+    }
+}
+
+
+/* ----- HEADER -----*/
+
+.header__container {
+    margin: 5px;
+}
+
+.header {
+    text-align: center;
+}
+
+.muestras-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.muestras-img {
+    width: 250px;
+    border-radius: 10px;
+    margin-right: 20px;
+    align-items: center;
+}
+
+.muestras-img:hover {
+    transform: translateY(-10px);
+}
+
+.informacion {
+    width: 50dvw;
+    margin: auto;
+}
+
+
+/*----- TRABAJOS ----- */
+
+.proyectos {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.trabajos__contenedor {
+    min-width: 20dvw;
+    margin: 7px;
+}
+
+.proyectos-img{
+    width: 25dvw;
+}
+
+.proyectos-img:hover {
+    transform: translateY(-10px);
+}
+
+.trabajos__info {
+    color: var(--color-principal);
+    width: 200px;
+}
+
+/* ----- OPINIONES -----*/
+
+.opiniones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.opinion {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.1);
+}
+
+.opinion p:first-child {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.opinion p:last-child {
+    color: #555;
+}
+
+
+/*----- CONTACTO -----*/
+
+.contacto__email {
+    background-color: var(--navbar-color);
+    color: #fff;
+    width: 50dvw;
+    margin: auto;
+    margin-top: 5px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ----- FOOTER -----*/
+
+.footer {
+    background-color: var(--color-principal);
+    color: #fff;
+    min-height: 50px;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+}
+
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
