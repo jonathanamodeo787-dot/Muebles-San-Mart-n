@@ -6,7 +6,7 @@
 body {
     --color-principal: #222;
     --bg-color: #fff;
-    --navbar-color: #555;
+    --navbar-color: rgba(255,255,255,0.8);
     background-color: var(--bg-color);
     color: #222;
     animation:aparecer 1s backwards;
@@ -16,6 +16,7 @@ body {
 
 .navbar {
     background-color: var(--navbar-color);
+    backdrop-filter: blur(10px);
     min-height: 3dvh;
     max-height: 15dvh;
     display: flex;
@@ -34,12 +35,8 @@ body {
 .navbar-link {
     margin: 20px;
     text-decoration: none;
-    color: var(--bg-color);
-}
-
-.logo {
-    width: 50px;
-    background-color: var(--bg-color);
+    font-size: 20px;
+    color: #222;
 }
 
 
@@ -87,18 +84,25 @@ body {
 /*----- TRABAJOS ----- */
 
 .proyectos {
+    margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
     text-align: center;
+    flex-direction: column;
 }
 
 .trabajos__contenedor {
-    min-width: 20dvw;
-    margin: 7px;
+    min-width: 30dvw;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .proyectos-img{
-    width: 25dvw;
+    width: 400px;
+    margin: auto;
 }
 
 .proyectos-img:hover {
@@ -107,46 +111,430 @@ body {
 
 .trabajos__info {
     color: var(--color-principal);
-    width: 200px;
+    font-size: 30px;
+    font-weight: bold;
 }
 
-/* ----- OPINIONES -----*/
+/* ----- OPINIONES ----- */
 
 .opiniones {
+    width: 90%;
+    max-width: 1100px;
+    margin: 70px auto;
+}
+
+.opiniones-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.opiniones-header span {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #777;
+}
+
+.opiniones-header h2 {
+    font-size: 32px;
+    margin: 8px 0;
+}
+
+.opiniones-header p {
+    color: #666;
+}
+
+/* ----- CARRUSEL ----- */
+
+.opiniones-carrusel {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 15px;
 }
 
-.opinion {
-    background-color: #f5f5f5;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,.1);
+.opiniones-viewport {
+    width: 100%;
+    overflow: hidden;
 }
 
+.opiniones-lista {
+    display: flex;
+    gap: 20px;
+
+    transition: transform .4s ease;
+}
+
+/* ----- TARJETAS ----- */
+
+.opinion {
+    flex: 0 0 calc((100% - 40px) / 3);
+
+    box-sizing: border-box;
+
+    background-color: #fff;
+    padding: 25px;
+
+    border-radius: 16px;
+    border: 1px solid #e5e5e5;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    transition: transform .2s, box-shadow .2s;
+}
+
+.opinion:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+}
+
+
 .opinion p:first-child {
+    font-size: 18px;
     font-weight: bold;
-    margin-bottom: 8px;
+    color: #222;
+    margin: 0;
 }
 
 .opinion p:last-child {
-    color: #555;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ----- FLECHAS ----- */
+
+.opiniones-flecha {
+    flex-shrink: 0;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #222;
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: .2s;
+}
+
+.opiniones-flecha:hover {
+    background-color: #444;
+    transform: scale(1.08);
+}
+
+.opiniones-flecha:disabled {
+    opacity: .3;
+    cursor: default;
+    transform: none;
+}
+
+/* ----- BOTÓN ----- */
+
+.opiniones-button {
+    display: block;
+
+    margin: 30px auto 0;
+
+    border: none;
+
+    background-color: #222;
+    color: white;
+
+    padding: 13px 25px;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.opiniones-button:hover {
+    background-color: #444;
+    transform: translateY(-2px);
+}
+
+/* ----- MÓVIL ----- */
+
+@media screen and (max-width: 700px) {
+
+    .opinion {
+        flex: 0 0 100%;
+    }
+
+    .opiniones-header h2 {
+        font-size: 26px;
+    }
+
+    .opiniones-carrusel {
+        gap: 8px;
+    }
+
+    .opiniones-flecha {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+}
+
+/* ----- MODAL OPINIÓN ----- */
+
+.modal-opinion {
+    position: fixed;
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, .65);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 100;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity .25s ease, visibility .25s ease;
+}
+
+/* Modal abierto */
+
+.modal-opinion.activo {
+    opacity: 1;
+    visibility: visible;
 }
 
 
-/*----- CONTACTO -----*/
+/* ----- CONTENIDO ----- */
 
-.contacto__email {
-    background-color: var(--navbar-color);
-    color: #fff;
-    width: 50dvw;
-    margin: auto;
-    margin-top: 5px;
-    align-items: center;
+.modal-contenido {
+    position: relative;
+
+    width: 100%;
+    max-width: 500px;
+
+    background-color: #fff;
+
+    border-radius: 18px;
+
+    padding: 35px;
+
+    box-sizing: border-box;
+
+    box-shadow: 0 15px 50px rgba(0, 0, 0, .25);
+
+    transform: translateY(-20px) scale(.97);
+
+    transition: transform .25s ease;
+}
+
+.modal-opinion.activo .modal-contenido {
+    transform: translateY(0) scale(1);
+}
+
+
+/* ----- CERRAR ----- */
+
+.modal-cerrar {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #f1f1f1;
+
+    color: #333;
+
+    font-size: 25px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.modal-cerrar:hover {
+    background-color: #ddd;
+}
+
+
+/* ----- HEADER ----- */
+
+.modal-header {
     text-align: center;
+    margin-bottom: 25px;
+}
+
+.modal-header span {
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    color: #777;
+}
+
+.modal-header h2 {
+    margin: 7px 0;
+
+    font-size: 28px;
+}
+
+.modal-header p {
+    color: #666;
+}
+
+
+/* ----- FORMULARIO ----- */
+
+.modal-form {
     display: flex;
     flex-direction: column;
+
+    gap: 8px;
+}
+
+.modal-form label {
+    font-weight: bold;
+
+    margin-top: 8px;
+}
+
+.modal-form input,
+.modal-form textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    padding: 12px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: border-color .2s;
+}
+
+.modal-form input:focus,
+.modal-form textarea:focus {
+    border-color: #555;
+}
+
+.modal-form textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+
+/* ----- ESTRELLAS ----- */
+
+.modal-estrellas {
+    margin-top: 10px;
+}
+
+.modal-estrellas > span {
+    font-weight: bold;
+}
+
+.estrellas {
+    display: flex;
+    gap: 4px;
+    margin-top: 5px;
+}
+
+.estrellas button {
+    border: none;
+    background: none;
+    font-size: 28px;
+    color: #ccc;
+    cursor: pointer;
+    padding: 0;
+    transition: .15s;
+}
+
+.estrellas button:hover {
+    color: #e5a928;
+    transform: scale(1.1);
+}
+
+.estrellas-reseña {
+    color: #e5a928;
+    font-size: 18px;
+    letter-spacing: 0;
+    display: inline-block;
+}
+
+.estrellas-vacias {
+    color: #ccc;
+}
+
+
+/* ----- ENVIAR ----- */
+
+.modal-enviar {
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    padding: 13px;
+    background-color: #222;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.modal-enviar:hover {
+    background-color: #444;
+    transform: translateY(-2px);
+}
+
+
+/* ----- MÓVIL ----- */
+
+@media screen and (max-width: 600px) {
+
+    .modal-contenido {
+        padding: 25px;
+        border-radius: 15px;
+    }
+
+    .modal-header h2 {
+        font-size: 24px;
+    }
+
 }
 
 
@@ -167,5 +555,18 @@ body {
     }
     100%{
         opacity: 1;
+    }
+}
+
+/* ----- MEDIA GENERAL -----*/
+
+@media screen and (max-width: 600px){
+    .muestras-img{
+        display: inline-block;
+        width: 150px;
+    }
+
+    .proyectos-img {
+        width: 50dvw;
     }
 }
