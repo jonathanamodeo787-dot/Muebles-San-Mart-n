@@ -10,7 +10,6 @@
 <body>
     <nav class="navbar">
         <div class="navbar-conteiner">
-            <img src="https://sanmartinmuebles.com/wp-content/uploads/2025/02/logo-512.png" class="logo">
             <a href="#" class="navbar-link">Inicio</a>
             <a href="#trabajos" class="navbar-link">Trabajos</a>
             <a href="#contacto" class="navbar-link">contacto</a>
@@ -23,10 +22,10 @@
             <h1>Muebles San Martín</h1>
             <h5>Fabricamos muebles a medida para hacer realidad tus espacios</h5>
             <div class="muestras__container">
-            <img src="https://noddum.com/wp-content/uploads/2021/10/CC.-Mesa-Indie-5.jpg" class="muestras-img">
-            <img src="https://i.pinimg.com/originals/7c/e1/ad/7ce1add2f3816c6eb19dd42ebc7ef2af.jpg" class="muestras-img">
-            <img src="https://www.artesaniadecoracion.com/blog/wp-content/uploads/2023/02/Mueble-modular-salon-pino-rustico.jpeg" class="muestras-img">
-            <img src="https://bodegademuebles.com/wp-content/uploads/2023/05/muebles-de-madera-parte-2.jpg" class="muestras-img">
+                <img src="https://noddum.com/wp-content/uploads/2021/10/CC.-Mesa-Indie-5.jpg" class="muestras-img">
+                <img src="https://i.pinimg.com/originals/7c/e1/ad/7ce1add2f3816c6eb19dd42ebc7ef2af.jpg" class="muestras-img">
+                <img src="https://www.artesaniadecoracion.com/blog/wp-content/uploads/2023/02/Mueble-modular-salon-pino-rustico.jpeg" class="muestras-img">
+                <img src="https://bodegademuebles.com/wp-content/uploads/2023/05/muebles-de-madera-parte-2.jpg" class="muestras-img">
             </div>
 
             <div class="informacion">
@@ -55,26 +54,68 @@
     </div>
 
     <div class="opiniones">
-    <h2>Opiniones</h2>
-
-    <div class="opiniones-lista"></div>
-
-    <button class="opiniones-button">Dejar opinión</button>
-</div>
-
-    <div class="contacto__container" id="contacto">
-        <div class="contacto__email">
-            <h3>Contactanos por email</h3>
-            <p>Email:</p>
-            <input type="email" placeholder="Example@gmail.com">
-            <p>asunto:</p>
-            <input type="text" placeholder="asunto">
-            <p>mensaje:</p>
-            <input type="text" placeholder="mensaje">
-            <button>Enviar</button>
-
-            <p>O puedes optar por contactarnos al +54 2364 1111</p>
+        <div class="opiniones-header">
+            <span>RESEÑAS</span>
+            <h2>Lo que dicen nuestros clientes</h2>
+            <p>Conocé las experiencias de quienes confiaron en Muebles San Martín.</p>
         </div>
+
+        <div class="opiniones-carrusel">
+
+            <button class="opiniones-flecha opiniones-izquierda">
+                &#10094;
+            </button>
+
+            <div class="opiniones-viewport">
+                <div class="opiniones-lista"></div>
+            </div>
+
+            <button class="opiniones-flecha opiniones-derecha">
+                &#10095;
+            </button>
+        </div>
+        <button class="opiniones-button" id="abrir-modal">Dejar opinión</button>
+    </div>
+
+    <div class="modal-opinion" id="modal-opinion">
+        <div class="modal-contenido">
+            <button class="modal-cerrar" id="cerrar-modal">
+                &times;
+            </button>
+
+            <div class="modal-header">
+                <span>RESEÑA</span>
+                <h2>Dejá tu opinión</h2>
+                <p>Contanos qué te pareció nuestro trabajo.</p>
+            </div>
+
+            <div class="modal-form">
+
+                <label for="nombre-opinion">Nombre</label>
+                <input type="text" id="nombre-opinion" placeholder="Tu nombre">
+                <label for="mensaje-opinion">Opinión</label>
+                <textarea id="mensaje-opinion" placeholder="Escribí tu opinión..."></textarea>
+
+                <div class="modal-estrellas">
+                    <span>Calificación</span>
+
+                    <div class="estrellas">
+                        <button class="estrella">★</button>
+                        <button class="estrella">★</button>
+                        <button class="estrella">★</button>
+                        <button class="estrella">★</button>
+                        <button class="estrella">★</button>
+                    </div>
+                </div>
+
+                <button class="modal-enviar">
+                    Publicar opinión
+                </button>
+
+            </div>
+
+        </div>
+
     </div>
 
     <footer class="footer">
