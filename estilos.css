@@ -544,11 +544,13 @@ body {
 .footer {
     background-color: var(--color-principal);
     color: #fff;
-    min-height: 50px;
+    min-height: 300px;
     text-align: center;
     margin: auto;
     margin-top: 20px;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer span:first-child {
