@@ -69,6 +69,7 @@ body {
     border-radius: 10px;
     margin-right: 20px;
     align-items: center;
+    margin-top: 40px;
 }
 
 .muestras-img:hover {
@@ -547,6 +548,22 @@ body {
     text-align: center;
     margin: auto;
     margin-top: 20px;
+    display: flex;
+}
+
+.footer span:first-child {
+    color:bisque;
+}
+
+.footer span {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.footer a {
+    text-decoration: none;
+    color:aquamarine;
 }
 
 @keyframes aparecer {
@@ -568,5 +585,9 @@ body {
 
     .proyectos-img {
         width: 50dvw;
+    }
+
+    .footer {
+        flex-direction: column;
     }
 }
